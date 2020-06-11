@@ -32,6 +32,7 @@ class StaticPagesController < ApplicationController
     if user_signed_in?
       @user = User.find(current_user.id)
     end
+  end
   
     def seniorliving
       showrecentconvo = Time.now - 10.hours
