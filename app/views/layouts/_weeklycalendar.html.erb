@@ -1,0 +1,80 @@
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+
+
+
+
+<% # This is to test the current page and next page. Still bug where it leave the page and goes to home page %>
+<%= will_paginate @events, renderer: BootstrapPagination::Rails %>
+
+
+
+
+
+
+
+<% offset = -1 * Time.now.in_time_zone("Pacific Time (US & Canada)").gmt_offset/3600%>
+<% i = 0 %>
+<% j = 0 %>
+<% k = 0 %>
+<% l = 0 %>
+<div class="container" style="padding-top: 50px; float: center; width: auto; max-width: 1470px;">
+<div id="events">
+  <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
+<%= weekcaler @monthforCalendar do |date| %>
+
+<button style="padding: 6px; border: 1px solid #999; height: 150px; width: 100%;"> <%= date.strftime("%A")%><br><%= date.day %> </button> 
+
+
+
+<% if @events.count != 0 %>
+
+
+
+    <table class="table table-hover" id=calendar 50px; float: center; width: auto; max-width: 1470px;">
+   
+      <tbody>
+        <% @events.sort_by{|t| t.start_at}.each do |event| %>
+        
+        
+            <% if event.start_at.to_date.eql?(Date.today) %>
+
+
+
+        <% user = User.find(event.usrid) %>
+        <% i += 1 %>  
+        <tr>
+          <td class=col-xs-3>
+            <%= link_to user.name, user.permalink, id: "calendar-event" %>
+            Let's talk about <%= link_to event.name, event, title: event.desc %>
+            <% if user_signed_in? %>
+              <% if event.usrid == current_user.id %>
+                <%= link_to '(Edit Conversation)', edit_event_path(event.id), id: "calendar-host" %>
+              <% end %>
+            <% end %>
+          </td>
+          
+         
+          
+        </tr>
+        <% end %>
+
+        <% end %>
+
+
+      </tbody>
+    </table>
+  <% end %>
+
+
+
+
+
+
+<% end %>
+
+
+
+
+</div>
+</div>
+
