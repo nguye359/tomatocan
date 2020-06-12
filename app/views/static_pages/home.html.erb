@@ -58,7 +58,8 @@
       <div class="buttonContainer">
         <button onclick="showPanel(0,'#f44336')">List View </button>
         <button onclick="showPanel(1,'#4caf50')">Monthly View </button>
-        <!-- <button onclick="showPanel(2,'#2196f3')">Weekly View</button> -->
+        <button onclick="showPanel(2,'#2196f3')">Weekly Calendar </button>
+        <!-- <button onclick="showPanel(3,'#ff5722')">Tab 4</button> -->
       </div>
     </div>
     <div class="tabPanel">
@@ -70,8 +71,13 @@
     </div>
     <div class="tabPanel" >
        <%= render 'layouts/monthcalendar', collection: @eventsAll %>
-    </div> 
-  </div>
+    </div>
+    
+    <div class="tabPanel">Tab 3:Content
+    <%= render 'layouts/weeklycalendar', collection: @eventsAll %>
+    </div>
+
+  
 
   <div class="row" id="purpose">
     <div class="col-md-3 col-md-offset-1", style="margin-top: 40px">

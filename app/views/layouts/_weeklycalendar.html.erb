@@ -36,7 +36,7 @@
         <% @events.sort_by{|t| t.start_at}.each do |event| %>
         
         
-            <% if event.start_at.Date.today.eql?(Date.today) %>
+            <% if event.start_at.to_date.eql?(Date.today) %>
 
 
 
