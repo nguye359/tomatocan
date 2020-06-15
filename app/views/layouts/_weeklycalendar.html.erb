@@ -80,8 +80,8 @@
       <tbody>
         <% @events.sort_by{|t| t.start_at}.each do |event| %>
 
-
-            <% if event.start_at.to_date.eql?(Date.today) %>
+            <% today= Date.today %>
+            <% if event.start_at.to_date.eql?(today + 2.day) %>
 
 
 
