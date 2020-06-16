@@ -22,38 +22,7 @@
   <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
 <%= weekcaler @monthforCalendar do |date| %>
 
-<button style="padding: 6px; border: 1px solid #999; height: 150px; width: 100%;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
-
-
-
-<% if @events.count != 0 %>
-
-
-
-    <table class="table table-hover" id=calendar 50px; float: center; width: auto; max-width: 1470px;">
-
-      <tbody>
-        <% @events.sort_by{|t| t.start_at}.each do |event| %>
-
-
-            <% if event.start_at.to_date.eql?(Date.today) %>
-
-
-
-        <% user = User.find(event.usrid) %>
-        <% i += 1 %>
-
-        <% end %>
-
-        <% end %>
-
-
-      </tbody>
-    </table>
-  <% end %>
-
-
-
+<button class="clickedButton"="padding: 6px; border: 1px solid #999; height: 150px; width: 100%;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
 
 
 
@@ -205,3 +174,15 @@
   <% end %>
   </>
 </div>
+
+<script>
+$(document).ready(function(){
+ $(".clickedButton").click(function(){
+    $(this).prev().toggle();
+    $(this).siblings('.dots').toggle();
+    $(this).find('.total').show();
+    $(this).text('Less Conversations');
+ });
+});
+
+</script>
