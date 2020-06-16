@@ -92,7 +92,7 @@ module MonthCalendarHelper
 
 		def weeks
 			first = Date.today
-            last = date.end_of_week(START_DAY)
+            last = Date.today + 6.day
 			(first..last).to_a.in_groups_of(7)
 		end
 		
