@@ -81,7 +81,7 @@
         <% @events.sort_by{|t| t.start_at}.each do |event| %>
 
             <% today= Date.today %>
-            <% if event.start_at.to_date.eql?(today + 2.day) %>
+            <% if event.start_at.to_date.eql?(today + 1.day) %>
 
 
 
