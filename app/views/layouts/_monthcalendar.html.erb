@@ -79,8 +79,7 @@
 $(document).ready(function(){
    $(".expand").click(function(){
       $(this).prev().toggle();
-      $(this).siblings('.dots').toggle();
-      $(this).find('.total').show();
+    
       if($(this).text()=='More Conversations'){
   $(this).text('Less Conversations');
       }
