@@ -19,7 +19,7 @@
 <% l = 0 %>
 <% passingdaytoday = Date.today %>
 
-@passingdaytodayy = Date.today
+<% @passingdaytodayy = Date.today %>
 
 
 <div class="container" style="padding-top: 50px; float: center; width: auto; max-width: 1470px;">
@@ -50,16 +50,16 @@
     <div class="tabsPanel">
       <div class="row" id="calendar"> 
         <div class="col-md-11 col-xs-12"> 
-          <p style = "color:black;"> ashdjasbdjbsajdbsadb dasbsadbkasndb asuhdjbasdbaskjdbkasbduibasudbuasd <br><br> <%= passingdaytoday %> </p> 
+          <p style = "color:black;"> ashdjasbdjbsajdbsadb dasbsadbkasndb asuhdjbasdbaskjdbkasbduibasudbuasd <br><br> <%= @passingdaytodayy %> </p> 
         </div>   
       </div> 
     </div>
 
     <div class="tabsPanel" >
     <%= render 'layouts/renderday', collection: @passingdaytodayy %>
- </div>
-    
     </div>
+    
+  </div>
 
 
 
