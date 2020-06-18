@@ -19,22 +19,25 @@
 <% l = 0 %>
 <% passingdaytoday = Date.today %>
 
-<% @passingdaytodayy = Date.today %>
+
 
 
 <div class="container" style="padding-top: 50px; float: center; width: auto; max-width: 1470px;">
 <div id="events">
   <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
 <%= weekcaler @monthforCalendar do |date| %>
-<% passingday = date.day %>
-<# button onclick class="clickedButton"="padding: 6px; border: 1px solid #999; height: 150px; width: 100%;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
+
 <div class="tabsContainer">
     <div class="col-md-9 col-md-offset-1 col-xs-11"> 
+   
       <div class="buttonsContainer">
-<button onclick= "Panel1(2,'#E23C19')"> <%= date.strftime("%A")%><br><%= date.day %> </button>
-<button onclick="Panel1(3,'#E23C19')">second View </button>
-</div>
-</div>
+         
+        <button onclick= "Panel1(2,'#900C3F')"> <%= date.strftime("%A")%><br><%= date.day %> </button>
+        <% @passingdaytodayy = date.day %>
+        <button onclick="Panel1(3,'#900C3F')">second View </button>
+      
+      </div>
+    </div>
 
 
 <div class="tabsPanel1">
@@ -45,10 +48,8 @@
 </div> 
 </div>
 
-<div class="tabsPanel1" >
-    <%= render 'layouts/renderday', collection: @passingdaytodayy %>
 </div>
-</div>
+
 <% end %>
 
 
@@ -81,7 +82,9 @@
 
 
 
-
+<div class="tabsPanel1" >
+    <%= render 'layouts/renderday', collection: @passingdaytodayy %>
+</div>
 
 
 
@@ -114,13 +117,13 @@
 
 
 <script>
-
+  
   function Panel1 (panelIndex, colorCode) {
     var tabButtons=document.querySelectorAll(".tabsContainer .buttonsContainer button");
     var tabPanels=document.querySelectorAll(".tabsContainer .tabsPanel1");
     tabButtons.forEach(function(node) {
-      node.style.backgroundColor="";
-      node.style.color=colorCode;
+      node.style.backgroundColor=colorCode;
+      node.style.color="FFFFFF";
     });
 
     tabButtons[panelIndex].style.backgroundColor="none";
@@ -130,7 +133,12 @@
     });
     tabPanels[panelIndex].style.display="block";
     tabPanels[panelIndex].style.backgroundColor="white";
+
+
+    @passingdaytodayy = Date.today
+
+
   } 
-  Panel1(2,'#E23C19');
+  Panel1(2,'#900C3F');
   
 </script>
