@@ -2,6 +2,7 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
 
+<p style="color:black;"> <%= @passingdaytodayy %>  <br><br>  </p>
 
 <% # This is to test the current page and next page. Still bug where it leave the page and goes to home page %>
 <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
@@ -23,7 +24,7 @@
 
 <div class="container" style="padding-top: 50px; float: center; width: auto; max-width: 1470px;">
 
-<span class="more" >
+<span class="more">
   <% if @events.count != 0 %>
     <table class="table table-hover" id=calendar>
       <tbody>
