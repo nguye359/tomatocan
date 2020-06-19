@@ -2,13 +2,13 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
 
-<p style="color:black;"> <%= @passingdaytodayy %>  <br><br>  </p>
 
 <% # This is to test the current page and next page. Still bug where it leave the page and goes to home page %>
 <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
 
 
 
+<p style="color:black;"> THis is the render page <%= @passingdaytodayy %>  <br><br>  </p>
 
 
 
@@ -30,7 +30,7 @@
       <tbody>
         <% @events.sort_by{|t| t.start_at}.each do |event| %>
 
-            <% if event.start_at.to_date.eql?(@passingdaytodayy + 0.day) %>
+            <% if event.start_at.to_date.eql?(@passingdaytodayy ) %>
 
 
 

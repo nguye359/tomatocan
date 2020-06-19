@@ -17,7 +17,6 @@
 <% j = 0 %>
 <% k = 0 %>
 <% l = 0 %>
-<% passingdaytoday = Date.today %>
 
 
 
@@ -31,11 +30,14 @@
     <div class="col-md-9 col-md-offset-1 col-xs-11">
 
       <div class="buttonsContainer">
-
-        <button onclick= "Panel1(2,'#900C3F')"> <%= date.strftime("%A")%><br><%= date.day %> </button>
-        <% @passingdaytodayy = Date.today %>
-        <button onclick="Panel1(3,'#900C3F')">second View </button>
-
+       
+        <% passing =date.day - Date.today.day%>
+        <% passing2 =0%>
+        <button onclick= "Panel1(0,'#900C3F')"> <%= date.strftime("%A")%><br><%= Date.today + passing.day %> </button>
+        <% @passingdaytodayy = Date.today + passing.day %>
+        
+        <button onclick="Panel1(1,'#900C3F')">2 </button>
+     
       </div>
     </div>
 
@@ -44,9 +46,13 @@
 <div class="row" id="calendar">
   <div class="col-md-11 col-xs-12">
     <p style = "color:black;"> tested message<br><br> <%= @passingdaytodayy %> </p>
+    <br><%= render 'layouts/renderday', collection: @passingdaytodayy %>
   </div>
 </div>
 </div>
+
+
+
 
 </div>
 
