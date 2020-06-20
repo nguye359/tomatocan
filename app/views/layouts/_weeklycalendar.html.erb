@@ -1,10 +1,11 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
 
+<tbody>
+ <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+</tbody>
 
 
-<% # This is to test the current page and next page. Still bug where it leave the page and goes to home page %>
-<%= will_paginate @events, renderer: BootstrapPagination::Rails %>
 
 
 
@@ -21,12 +22,16 @@
 
 
 
+
 <div class="container" style="padding-top: 50px; float: center; width: auto; max-width: 1470px;">
+
 <div id="events">
   <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
+  
 <%= weekcaler @monthforCalendar do |date| %>
 
-<div class="tabsContainer">
+
+<div class="tabsContainer" style= "border:none;">
 
   <div class="col-md-9 col-md-offset-1 col-xs-11">
     <div class="buttonsContainer">
