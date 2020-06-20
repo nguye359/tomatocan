@@ -1,11 +1,6 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
 
-<tbody>
- <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
-</tbody>
-
-
 
 
 
@@ -23,18 +18,21 @@
 
 
 
-<div class="container" style="padding-top: 50px; float: center; width: auto; max-width: 1470px;">
+<div class="container" style="padding-top: 30px; float: center; width: 100%; max-width: 2470px;">
 
 <div id="events">
   <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
   
-<%= weekcaler @monthforCalendar do |date| %>
 
 
-<div class="tabsContainer" style= "border:none;">
+
+
+
 
   <div class="col-md-9 col-md-offset-1 col-xs-11">
     <div class="buttonsContainer">
+    
+    <%= weekcaler @monthforCalendar do |date| %>
       <% passing =date.day - Date.today.day%>
       <% @passingdaytodayy = Date.today + passing.day %>
       <button class= "weeklybuttons" onclick= "Panel1(<%=@passing1%>,'#900C3F')" style= "border-radius:8px; float:center; font-family: sans-serif; font-weight:bold;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
@@ -52,7 +50,7 @@
     </div>
   </div>
 
-</div>
+
 
 <% end %>
 
@@ -77,8 +75,8 @@
 <script>
 
   function Panel1 (panelIndex, colorCode) {
-    var tabButtons=document.querySelectorAll(".tabsContainer .buttonsContainer button");
-    var tabPanels=document.querySelectorAll(".tabsContainer .tabsPanel1");
+    var tabButtons=document.querySelectorAll(".container .buttonsContainer button");
+    var tabPanels=document.querySelectorAll(".container .tabsPanel1");
     tabButtons.forEach(function(node) {
       node.style.backgroundColor=colorCode;
       node.style.color="#FFFFFF";
