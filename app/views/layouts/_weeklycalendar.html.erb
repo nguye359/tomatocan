@@ -24,7 +24,7 @@
   <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
   
 
-
+    <%= weekcaler @monthforCalendar do |date| %>
 
 
 
@@ -32,7 +32,7 @@
   <div class="col-md-9 col-md-offset-1 col-xs-11">
     <div class="buttonsContainer">
     
-    <%= weekcaler @monthforCalendar do |date| %>
+
       <% passing =date.day - Date.today.day%>
       <% @passingdaytodayy = Date.today + passing.day %>
       <button class= "weeklybuttons" onclick= "Panel1(<%=@passing1%>,'#900C3F')" style= "border-radius:8px; float:center; font-family: sans-serif; font-weight:bold;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
