@@ -27,33 +27,25 @@
 <%= weekcaler @monthforCalendar do |date| %>
 
 <div class="tabsContainer">
-    <div class="col-md-9 col-md-offset-1 col-xs-11">
 
-      <div class="buttonsContainer">
-       
-        <% passing =date.day - Date.today.day%>
-       
-       
-         <% @passingdaytodayy = Date.today + passing.day %>
-        <button onclick= "Panel1(<%=@passing1%>,'#900C3F')"> <%= date.strftime("%A")%><br><%= Date.today + passing.day %> </button>
-        <%@passing1 = @passing1 + 1%>
-        
+  <div class="col-md-9 col-md-offset-1 col-xs-11">
+    <div class="buttonsContainer">
+      <% passing =date.day - Date.today.day%>
+      <% @passingdaytodayy = Date.today + passing.day %>
+      <button class= "weeklybuttons" onclick= "Panel1(<%=@passing1%>,'#900C3F')" style= "border-radius:8px; float:center; font-family: sans-serif; font-weight:bold;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
+      <%@passing1 = @passing1 + 1%> 
+    </div>
+  </div>
 
+
+  <div class="tabsPanel1">
+    <div class="row" id="calendar">
+      <div class="col-md-11 col-xs-12">
+       
+        <br><%= render 'layouts/renderday', collection: @passingdaytodayy %>
       </div>
     </div>
-
-
-<div class="tabsPanel1">
-<div class="row" id="calendar">
-  <div class="col-md-11 col-xs-12">
-    <p style = "color:black;"> tested message<br><br> <%= @passingdaytodayy %> </p>
-    <br><%= render 'layouts/renderday', collection: @passingdaytodayy %>
   </div>
-</div>
-</div>
-
-
-
 
 </div>
 
@@ -68,9 +60,6 @@
 
 
 
-<div class="tabsPanel1" >
-    <%= render 'layouts/renderday', collection: @passingdaytodayy %>
-</div>
 
 
 
@@ -87,7 +76,8 @@
     var tabPanels=document.querySelectorAll(".tabsContainer .tabsPanel1");
     tabButtons.forEach(function(node) {
       node.style.backgroundColor=colorCode;
-      node.style.color="FFFFFF";
+      node.style.color="#FFFFFF";
+      node.style.width="120px";
     });
 
     tabButtons[panelIndex].style.backgroundColor="none";
