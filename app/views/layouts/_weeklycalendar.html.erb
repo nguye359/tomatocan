@@ -17,7 +17,7 @@
 <% j = 0 %>
 <% k = 0 %>
 <% l = 0 %>
-
+ <% @passing1 = 0%>
 
 
 
@@ -32,12 +32,13 @@
       <div class="buttonsContainer">
        
         <% passing =date.day - Date.today.day%>
-        <% passing2 =0%>
-        <button onclick= "Panel1(0,'#900C3F')"> <%= date.strftime("%A")%><br><%= Date.today + passing.day %> </button>
-        <% @passingdaytodayy = Date.today + passing.day %>
+       
+       
+         <% @passingdaytodayy = Date.today + passing.day %>
+        <button onclick= "Panel1(<%=@passing1%>,'#900C3F')"> <%= date.strftime("%A")%><br><%= Date.today + passing.day %> </button>
+        <%@passing1 = @passing1 + 1%>
         
-        <button onclick="Panel1(1,'#900C3F')">2 </button>
-     
+
       </div>
     </div>
 
@@ -100,6 +101,6 @@
 
 
   }
-  Panel1(2,'#900C3F');
+  Panel1(0,'#900C3F');
 
 </script>
