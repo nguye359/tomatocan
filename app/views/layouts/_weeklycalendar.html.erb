@@ -21,10 +21,12 @@
 <div class="container" style="padding-top: 30px; float: center; width: 100%; max-width: 2470px;">
 
 <div id="events">
-  <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> </h2>
+  <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> 
+  <%= weekcaler @monthforCalendar do |date| %>
+  </h2>
   
 
-    <%= weekcaler @monthforCalendar do |date| %>
+    
 
 
 
