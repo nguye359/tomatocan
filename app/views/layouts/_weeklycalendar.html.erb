@@ -1,13 +1,5 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
-
-
-
-
-
-
-
-
 <% offset = -1 * Time.now.in_time_zone("Pacific Time (US & Canada)").gmt_offset/3600%>
 <% i = 0 %>
 <% j = 0 %>
@@ -15,30 +7,21 @@
 <% l = 0 %>
  <% @passing1 = 0%>
 
-
-
-
 <div class="container" style="padding-top: 30px; float: center; width: 100%; max-width: 2470px;">
 
 <div id="events">
-  <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %> 
+  <h2 id="month" style="color: black;"> <%= @monthforCalendar.strftime("%B %Y") %>
   <%= weekcaler @monthforCalendar do |date| %>
   </h2>
-  
-
-    
-
-
-
 
   <div class="col-md-9 col-md-offset-1 col-xs-11">
     <div class="buttonsContainer">
-    
+
 
       <% passing =date.day - Date.today.day%>
       <% @passingdaytodayy = Date.today + passing.day %>
       <button class= "weeklybuttons" onclick= "Panel1(<%=@passing1%>,'#900C3F')" style= "border-radius:8px; float:center; font-family: sans-serif; font-weight:bold;"> <%= date.strftime("%A")%><br><%= date.day %> </button>
-      <%@passing1 = @passing1 + 1%> 
+      <%@passing1 = @passing1 + 1%>
     </div>
   </div>
 
@@ -46,32 +29,16 @@
   <div class="tabsPanel1">
     <div class="row" id="calendar">
       <div class="col-md-11 col-xs-12">
-       
+
         <br><%= render 'layouts/renderday', collection: @passingdaytodayy %>
       </div>
     </div>
   </div>
 
-
-
 <% end %>
 
-
-
-
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script>
