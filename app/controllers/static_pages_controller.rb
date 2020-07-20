@@ -18,6 +18,8 @@ class StaticPagesController < ApplicationController
     @calendar_events_all = @calendar_events
     @calendar_events = @calendar_events.paginate(page: params[:page], :per_page => 9)
 
+    @weekEvents = getWeeklyEvents(@calendar_events_all)
+
     @eventsAll = Event.where( "start_at > ?", showrecentconvo ).order('start_at ASC')
 
     pdtnow = Time.now - 7.hours
@@ -81,6 +83,8 @@ class StaticPagesController < ApplicationController
     @calendar_events = @calendar_events.sort_by {|event| event.start_at}
     @calendar_events_all = @calendar_events
     @calendar_events = @calendar_events.paginate(page: params[:page], :per_page => 9)
+
+    @weekEvents = getWeeklyEvents(@calendar_events_all)
 
     pdtnow = Time.now - 7.hours
     pdtnext = Time.now - 8.hours
@@ -157,4 +161,18 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def getWeeklyEvents(events)
+    eventsOfweek = Array.new(7){Array.new()}
+    today = Date.today
+    lastWDay = today + 6.day
+    (today..lastWDay).to_a.each_with_index do |date, i|
+      puts "****Current date #{date}"
+      events.each do |event|
+        if event.start_at.to_date.eql? date
+          eventsOfweek[i] << event
+        end
+      end
+    end
+    eventsOfweek
+  end
 end
