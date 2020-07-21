@@ -19,10 +19,8 @@
         <table class="table table-hover" id=calendar>
           <tbody>
             <% weekEvents[i].sort_by{|t| t.start_at}.each_with_index do |event, i| %>
-              <% user = User.find(event.usrid) %>
-              <% dayId = "day-#{id}-#{i}"%>
-              <% timeId = "time-#{id}-#{i}"%>
-              <%= render partial: "layouts/#{eventDisplayStyle}", locals: {event: event, user: user, dayId:  dayId, timeId: timeId, i: i}%>
+              <% cssId = "#{id}-#{i}"%>
+              <%= render partial: "layouts/#{eventDisplayStyle}", locals: {event: event, id: cssId}%>
             <% end %>
           </tbody>
         </table>
