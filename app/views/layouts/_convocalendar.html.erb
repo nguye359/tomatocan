@@ -11,7 +11,7 @@
       <tbody>
         <% @calendar_events.sort_by{|t| t.start_at}.each do |event| %>
           <% user = User.find(event.usrid) %>
-          <% i += 1 %>  
+          <% i += 1 %>
           <tr>
             <td class=col-xs-3>
 
@@ -45,7 +45,7 @@
 
             <% if ((Time.current - offset.hours) > Time.find_zone("UTC").parse(start_time) ) && ((Time.current - offset.hours) < Time.find_zone("UTC").parse(end_time)) %>
               <%= link_to " Join Conversation NOW ", user.permalink + "/viewer?chatrm=" + event.topic, class: "btn btn-primary btn-sm fa fa-video-camera" %>
-              
+
             <% else %>
                 <%= form_for(@rsvp) do |f| %>
                   <% if @rsvp.errors.any? %>
@@ -98,7 +98,7 @@
               'width=600,height=400,top=100,left=300');
               return false;">
               <%= image_tag("social-share-button/facebook.png")%>
-             
+
             </a>&nbsp
 
               <!-- Twitter Share -->
@@ -118,17 +118,11 @@
               return false;">
               <%= image_tag("social-share-button/linkedin.png")%>
             </a>&nbsp
-            
+
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
   <% end %>
-</>
 </div>
-<script>
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>

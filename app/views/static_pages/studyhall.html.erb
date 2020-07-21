@@ -7,7 +7,7 @@
           - Support Women & Minorities in Tech: Mentor, Network, Improve Skills <br>
           - Hang out in video chat with other people learning topics you're interested in. We're currently working on open source tech related to building ThinQ.tv, a Woman Owned Tech Startup <br>
           - Peers and possibly mentors are there while you're working incase you have questions or need someone to bounce ideas, pair program, get feedback on your designs <br>
-          - No agenda. Drop in any time; we'll greet you when you arrive. 
+          - No agenda. Drop in any time; we'll greet you when you arrive.
           Feel free to work quietly in the chat room to be there for each other when that Aha moment happens
          </h4>
       </div>
@@ -41,7 +41,7 @@
     <div class="tabPanel">
       <div class="row" id="calendar">
         <div class="col-xs-12">
-          <%= render partial: 'layouts/weeklycalendar', locals: {eventPartial: "layouts/renderday", weekEvents: @weekEvents}%>
+          <%= render partial: 'layouts/weeklycalendar', locals: {eventDisplayStyle: "event_row_rsvp", weekEvents: @weekEvents, eventType: "study hall"}%>
         </div>
       </div>
     </div>
